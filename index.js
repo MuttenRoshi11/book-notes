@@ -51,7 +51,6 @@ app.get("/", async (req, res) => {
         searchBook(book.title);
     });
 
-    searchBook('The Great Gatsby');
     
 
     res.render("index.ejs", {books: books})
