@@ -1,1 +1,143 @@
+html {
+    background-color: #e4e9fd;
+    background-image: -webkit-linear-gradient(65deg, #a683e3 50%, #e4e9fd 50%);
+    background-image: linear-gradient(65deg, #a683e3 50%, #e4e9fd 50%);
+    min-height: 1000px;
+    font-family: "helvetica neue";
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    min-height: 155vh;
+    text-align: center;
+  }
+  main {
+    text-align: center;
+    flex: 1 0 auto;
+  }
+  h1 {
+    color: #000000;
+    padding: 10px;
+  }
+  
+  .box {
+    max-width: 1500px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 75px;
+    padding-right: 75px;
+    margin: 50px auto;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+  }
 
+  form.edit {
+    display: flex;
+  }
+  
+  .book {
+    min-height: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid #f1f1f1;
+  }
+  
+  .book:last-child {
+    border-bottom: 0;
+  }
+  
+  input[type="checkbox"] {
+    margin: 20px;
+    margin-left: 0;
+  }
+  
+  p {
+    max-width: 350px;
+    margin-bottom: 15px;
+    padding: 20px 0;
+    font-size: 20px;
+    color: #00204a;
+  }
+  
+  form {
+    text-align: center;
+    flex-direction: column;
+  }
+  
+  button.add {
+    min-height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border-color: transparent;
+    background-color: #a683e3;
+    color: #fff;
+    font-size: 30px;
+    border-width: 0;
+  }
+  
+  button.delete {
+    margin-left: 0px;
+    margin-right: 20px;
+    border: none;
+    background: none;
+  }
+
+  button.edit {
+    margin-left: 0px;
+    margin-right: 20px;
+    border: none;
+    background: none;
+  }
+  
+  .icon {
+    height: 20px;
+  }
+  
+  input {
+    text-align: left;
+    height: 60px;
+    top: 10px;
+    border: none;
+    background: transparent;
+    font-size: 20px;
+    font-weight: 200;
+    width: 100%;
+  }
+  textarea {
+    text-align: left;
+    height: 150px;
+    top: 10px;
+    border: none;
+    background: transparent;
+    font-family: "helvetica neue";
+    font-size: 18px;
+    font-weight: 200;
+    width: 100%;
+  }
+  
+  input[type="text"]:focus {
+    outline: none;
+    box-shadow: inset 0 -3px 0 0 #a683e3;
+  }
+  
+  ::placeholder {
+    color: rgb(94, 89, 89);
+    opacity: 1;
+  }
+  .editing {
+    margin-left: 0px;
+    margin-right: 20px;
+    border: none;
+    background: none;
+    flex-direction: column;
+  }
+  h2 form {
+    float: right;
+  }
+  footer {
+    position: relative;
+    bottom: -30px;
+  }
