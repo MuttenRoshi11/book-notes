@@ -4,12 +4,19 @@ import bodyParser from "body-parser";
 import pg from "pg";
 import ejs from "ejs";
 import axios from "axios";
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+import path from 'path';
+
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // Set up Express app and database connection pool
 const app = express();
 const port = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, 'public')))
 const dbConfig = { user: "postgres", host: "localhost", database: "books", password: "Krava12346073@#!%", port: 5432 };
 const pool = new pg.Pool(dbConfig);
 
