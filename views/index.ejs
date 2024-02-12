@@ -8,46 +8,58 @@
 </head>
 <body>
     <div class="box">
+
         <h1>Books</h1>
 
+        <!-- Displaying books -->
         <div class="box">
             <% let count = 0 %>
 
             <% for(book of books) { %>
+                  <!-- Book title with delete button -->
                   <h2 id="title<%= book.id %>">
                     <%= book.title %>
                     <form action="/delete" method="post">
                       <button type="submit" name="deleteBookId" class="delete" value="<%= book.id %>">
+                        <!-- Delete icon -->
                         <img class="icon" src="assets/icons/delete.svg" alt="delete"></button>
                     </form>
                   </h2>
+                <!-- Book cover, notes, and rating -->
                 <img src="<%= book_cover[count] %>" height="450px" width="350px" alt="Book not found, please check your spelling.">
                 <p id="description<%= book.id %>">
-                    Notes: 
-                    <%= book.description %>
+                    Notes: <%= book.description %>
                 </p>
                 <p id="rating<%= book.id %>">
                     Rating: <%= book.rating %>
                 </p>
 
+                <!-- Handling updates on book objects -->
               <div class="book">
+                <!-- Form for editing the book -->
                 <form id="editing" class="edit" action="/edit" method="post">
                   <input type="hidden" name="updatedBookId" value="<%= book.id %>">
+                  <!-- Input for updated book title -->
                   <input id="input1<%=book.id%>" type="text" name="updatedTitle" value="<%= book.title %>" autocomplete="off"
                     autofocus="true" hidden="true" required/>
+                  <!-- Textarea for updated book description -->
                   <textarea id="input2<%=book.id%>" type="text" name="updatedDescription" autocomplete="off"
                     autofocus="true" hidden="true" required><%= book.description %></textarea>
+                  <!-- Input for updated book rating -->
                   <input id="input3<%=book.id%>" type="integer" name="updatedRating" value="<%= book.rating %>" autocomplete="off"
                     autofocus="true" hidden="true" required/>
+                  <!-- Button to submit the updated book -->
                   <button id="done<%=book.id%>" class="edit" type="submit" hidden><img class="icon"
                       src="/assets/icons/tick.svg" alt="tick image"></button>
                 </form>
+                <!-- Button to trigger editing mode -->
                 <button id="edit<%=book.id%>" class="edit" onclick="handler('<%=book.id%>')"><img class="icon"
                     src="/assets/icons/edit.svg" alt="pencil image"></button>
               </div>
                 <% count++ %> 
               <% } %>
-        
+
+              <!-- Adding new book form -->
                 <form class="book" action="/add" method="post">
                   <input type="text" name="newTitle" placeholder="Please type full title." autocomplete="off" autofocus="true" required/>
                   <input type="text" name="newDescription" placeholder="Add Your notes." autocomplete="off" autofocus="true" required/>
@@ -56,18 +68,25 @@
                 </form>
           </div>
 
-    <script>
-        function handler(id) {
-          document.getElementById("title" + id).setAttribute("hidden", true);
-          document.getElementById("description" + id).setAttribute("hidden", true);
-          document.getElementById("rating" + id).setAttribute("hidden", true);
-          document.getElementById("edit" + id).setAttribute("hidden", true);
-          document.getElementById("done" + id).removeAttribute("hidden");
-          document.getElementById("input1" + id).removeAttribute("hidden");
-          document.getElementById("input3" + id).removeAttribute("hidden");
-          document.getElementById("input2" + id).removeAttribute("hidden");
-        };
-      </script>
+        <!-- Beginning of script tag -->
+        <script>
+            // JavaScript function to handle book editing
+            function handler(id) {
+              // Hide book details and show editing elements
+              document.getElementById("title" + id).setAttribute("hidden", true);
+              document.getElementById("description" + id).setAttribute("hidden", true);
+              document.getElementById("rating" + id).setAttribute("hidden", true);
+              document.getElementById("edit" + id).setAttribute("hidden", true);
+              document.getElementById("done" + id).removeAttribute("hidden");
+              document.getElementById("input1" + id).removeAttribute("hidden");
+              document.getElementById("input3" + id).removeAttribute("hidden");
+              document.getElementById("input2" + id).removeAttribute("hidden");
+            };
+        </script>
+    </div>
+
+    <!-- Adding ejs footer -->
+    <%- include('partials/footer.ejs'); -%>
+
 </body>
 </html>
-<%- include('partials/footer.ejs'); -%>
