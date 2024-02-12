@@ -7,7 +7,7 @@ import axios from "axios";
 
 // Set up Express app and database connection pool
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 const dbConfig = { user: "postgres", host: "localhost", database: "books", password: "Krava12346073@#!%", port: 5432 };
@@ -143,5 +143,5 @@ app.post("/delete", async (req, res) => {
 
 // Start the Express server
 app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+  console.log(`Server is running on port ${port}`);
 });
